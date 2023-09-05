@@ -20,6 +20,7 @@ class RegisterViewModel @Inject constructor(private val repo: AuthRepo):ViewMode
     private var _response=MutableLiveData<String>()
     val responseRegistration :LiveData<String> = _response
 
+    //Comment on function
     fun registration(
         requestUserRegister: RequestUserRegister
     ){
