@@ -25,18 +25,18 @@
 
     <!-- Username EditText -->
     <EditText
-        android:id="@+id/username_edittext"
+        android:id="@+id/editEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="email"
         android:textSize="20sp"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:layout_marginVertical="8dp"
         android:layout_marginBottom="16dp" />
 
     <!-- Password EditText -->
     <EditText
-        android:id="@+id/password_edittext"
+        android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
@@ -56,12 +56,22 @@
 
     <!-- Forgot Password Link -->
     <TextView
+        android:id="@+id/forgetPasswordTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/forgot_password"
-        android:textColor="@color/black"
+        android:textColor="@android:color/darker_gray"
         android:gravity="center"
         android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/registerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Don't have an account? Register"
+            android:textColor="@android:color/darker_gray" />
 
 </LinearLayout>
 </ScrollView>
