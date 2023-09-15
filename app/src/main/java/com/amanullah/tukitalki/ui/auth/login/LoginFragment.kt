@@ -11,12 +11,25 @@ import com.amanullah.tukitalki.data.login.RequestUserLogin
 import com.amanullah.tukitalki.databinding.FragmentLoginBinding
 import com.amanullah.tukitalki.utils.ErrorMessage
 import com.amanullah.tukitalki.utils.SuccessMessage
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
     private val viewModel:LoginViewModel by viewModels()
+
+
+    //To retain user login
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val user= FirebaseAuth.getInstance().currentUser
+        user?.let {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment3)
+        }
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,6 +38,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             when(it){
                 SuccessMessage ->{
                     Toast.makeText(requireContext(), SuccessMessage, Toast.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment3)
+
                 }
                 ErrorMessage ->{
                     Toast.makeText(requireContext(), ErrorMessage, Toast.LENGTH_LONG).show()
